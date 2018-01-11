@@ -1,17 +1,6 @@
-﻿
 
 #include <SPI.h>
-
-
 #include <Ethernet.h>
-
-
-
-
-
-
-
-
 
 
 byte mac[] = { 0x90, 0xA2, 0xDA, 0x0D, 0x78, 0xE0 }; // <------- PUT YOUR MAC Address Here
@@ -28,26 +17,15 @@ byte subnet[] = { 255, 255, 255, 0 }; //                <------- It will be as i
 
 EthernetServer server(80); //                           <------- It's Defaulf Server Port for Ethernet Shield
 
-
-
-
 String readString;
 
-
-
-
 //////////////////////
-
-
 
 
 void setup()
 
 
 {  
-
-
-
 
   pinMode(6, OUTPUT); // Pin Assignment through which relay will be controlled
 
@@ -61,31 +39,14 @@ void setup()
   pinMode(9, OUTPUT);
 
 
-  
-
-
-  
-
-
   //start Ethernet
-
-
-  
-
 
   Ethernet.begin(mac, ip, gateway, subnet);
 
 
   server.begin();
 
-
-  
-
-
   //enable serial data print
-
-
-  
 
 
   Serial.begin(9600);
@@ -105,15 +66,8 @@ void loop()
 {  
 
 
-   
-
-
-  
-
 
   // Create a client connection
-
-
 
 
   EthernetClient client = server.available();
@@ -130,19 +84,10 @@ void loop()
 
         char c = client.read();
 
-
-
-
-        
-
-
         //read char by char HTTP request
 
 
         if (readString.length() < 100) {
-
-
-
 
           //store characters to string
 
